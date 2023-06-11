@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .clock {
+      font-family: Arial, sans-serif;
+      font-size: 48px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock"></div>
+
+  <script>
+    function updateTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      // Adiciona um zero na frente de minutos e segundos menores que 10
+      minutes = (minutes < 10 ? "0" : "") + minutes;
+      seconds = (seconds < 10 ? "0" : "") + seconds;
+
+      var timeString = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("clock").innerHTML = timeString;
+    }
+
+    // Chama a função updateTime a cada segundo
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
